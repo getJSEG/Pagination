@@ -5,6 +5,7 @@ FSJS project 2 - List Filter and Pagination
 
 // Add variables that store DOM elements you will need to reference and/or manipulate
 const studentItem = document.querySelectorAll('.student-item');
+const AllStudentsName = document.querySelectorAll('.student-item div h3');
 const studentList = document.querySelector('.student-list');
 
 let currentPage = 1;
@@ -71,10 +72,12 @@ const searchThroughItems = (searchValue, event) =>{
     let specificItems = [];
     //removing previous errors
     throwError.innerHTML ="";
+
     
     for(let i = 0; i < studentItem.length; i++){
-        let studentName = studentItem[i].children[0].children[1].innerHTML.toLocaleLowerCase().replace(/^[ ]+|[ ]+$/g,'');
-
+        let studentName = AllStudentsName[i].textContent.toLocaleLowerCase().replace(/^[ ]+|[ ]+$/g,'');
+        
+        
         if(!(studentName.indexOf(inputValue)) && inputValue){                
             itemsShown++;
             visibleStudents = itemsShown;
