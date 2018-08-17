@@ -57,8 +57,7 @@ const searchResults = () =>{
     
     // when search button is click run the function 'searchThroughItems' to find the items
     searchButton.addEventListener("click",function(e){
-        e.preventDefault();  
-        console.log(e)
+        e.preventDefault();
         searchThroughItems(searchValue,e);
     }); 
     
@@ -75,8 +74,7 @@ const searchThroughItems = (searchValue, event) =>{
 
     
     for(let i = 0; i < studentItem.length; i++){
-        let studentName = AllStudentsName[i].textContent.toLocaleLowerCase().replace(/^[ ]+|[ ]+$/g,'');
-        
+        let studentName = AllStudentsName[i].textContent.toLocaleLowerCase().replace(/^[ ]+|[ ]+$/g,'');        
         
         if(!(studentName.indexOf(inputValue)) && inputValue){                
             itemsShown++;
@@ -102,7 +100,7 @@ const searchThroughItems = (searchValue, event) =>{
     // if no item is found the error message appears 
     if(itemsShown === 0 && inputValue){
         throwError.innerHTML ="";
-        throwError.innerHTML ="No items Found";
+        throwError.innerHTML ="No Name Found";
         paginationLinks(1, itemsPerPage, specificItems);
     }
 }
@@ -159,7 +157,6 @@ const activePage = (numberOfPages, itemsperpage, Allitems) =>{
         });
     } 
 }
-
 
 searchField();
 paginationContainer();
